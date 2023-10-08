@@ -1,4 +1,4 @@
-# video capture with redbox and image tracking
+# video capture with image tracking
 
 import cv2 as cv
 import numpy as np
@@ -21,7 +21,7 @@ def limits(color):
 # initialize video capture
 cap = cv.VideoCapture(0) 
 
-# color we want to detect
+# color we want to detect in BGR
 blue = [255, 0, 0]
 
 while True:
@@ -41,7 +41,9 @@ while True:
         x1, y1, x2, y2 = box
         frame = cv.rectangle(frame, (x1,y1), (x2,y2), (0,255,0), 5)
 
-
+    # for me, the window default was huge, this code resiezes the projected video screen to be much smaller and more manageable
+    cv.namedWindow('frame', cv.WINDOW_NORMAL)
+    cv.resizeWindow('frame', 700, 700)
     cv.imshow('frame', frame)
 
     # close program when 'q' is pressed
