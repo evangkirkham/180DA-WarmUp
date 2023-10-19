@@ -44,6 +44,7 @@ while True:
     # for me, the window default was huge, this code resiezes the projected video screen to be much smaller and more manageable
     cv.namedWindow('frame', cv.WINDOW_NORMAL)
     cv.resizeWindow('frame', 700, 700)
+    
     cv.imshow('frame', frame)
 
     # close program when 'q' is pressed
